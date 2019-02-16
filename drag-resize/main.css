@@ -1,0 +1,31 @@
+iframe {
+    border: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* ============================== Layout */
+.designer {
+    position: relative;
+    width: 90%;
+    height: 90%;
+}
+
+.designer .handlers, .designer .design-surface{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================== Positioning */
+.designer .handlers{
+    /* pointer-events: none; */
+    z-index: 2;
+}
+.designer .design-surface{
+    z-index: 1;
+}

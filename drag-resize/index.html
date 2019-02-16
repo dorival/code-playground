@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Drag and Resize</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <div class="designer">
+        <canvas class="handlers"></canvas>
+        <iframe class="design-surface" sandbox="allow-scripts allow-pointer-lock"
+            src="design-surface.html">
+            <p>This designer requires iframes in order to work.</p>
+        </iframe>
+    </div>
+
+    <script>
+        function flipHorizontally(context, around) {
+            context.translate(around, 0);
+            context.scale(-1, 1);
+            context.translate(-around, 0);
+        }
+
+        let cx = document.querySelector("canvas").getContext("2d");
+        let img = document.createElement("img");
+        img.src = "player.png";
+        let spriteW = 24, spriteH = 30;
+        img.addEventListener("load", () => {
+            flipHorizontally(cx, 100 + spriteW / 2);
+            cx.drawImage(img, 0, 0, spriteW, spriteH, 100, 0, spriteW, spriteH);
+        });
+
+        document.querySelector("canvas").addEventListener('click', function(a) {
+            console.log(a);
+        }, false);
+    </script>
+</body>
+</html>
