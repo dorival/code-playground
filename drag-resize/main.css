@@ -23,7 +23,7 @@ html, body{
 
 /* ============================== Positioning */
 .designer .handlers{
-    /* pointer-events: none; */
+    pointer-events: all;
     z-index: 2;
 }
 .designer .design-surface{
